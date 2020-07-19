@@ -1,17 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
+//import 'antd/dist/antd.css'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import App from './App'
+import memoryUtils from './utils/memoryUtils'
+import storageUtils from './utils/storageUtils'
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+//读取本地保存的登录状态信息
+const user = storageUtils.getUser()
+
+//保存登录信息到内存中
+memoryUtils.user = user
+
+
+
+ReactDOM.render(<App/>,document.getElementById('root'))
